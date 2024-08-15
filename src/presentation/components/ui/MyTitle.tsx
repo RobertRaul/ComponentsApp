@@ -9,7 +9,7 @@ interface Props {
     white?: boolean;
 }
 
-export const Title = ({ text, safe = false, white = false }: Props) => {
+export const MyTitle = ({ text, safe = false, white = false }: Props) => {
 
     const { top } = useSafeAreaInsets();
     return (
@@ -18,6 +18,6 @@ export const Title = ({ text, safe = false, white = false }: Props) => {
             marginTop: safe ? top : 0,
             marginBottom: 10,
             color: white ? 'white' : colors_them.text
-        }}>Title</Text>
+        }}>{text}</Text>
     )
 }

@@ -12,17 +12,21 @@ export const MyButton = ({ text = 'MyButton', style, onPress }: Props) => {
   return (
     <Pressable onPress={onPress} style={
       ({ pressed }) => (
-        [globalStyles.btnPrimary, {
+        [globalStyles.btnPrimary,
+          style,
+        {
           opacity: pressed ? 0.5 : 1,
-          backgroundColor: colors_them.primary
+          backgroundColor: colors_them.primary,
+          marginTop: 10,
         }]
       )
+
     }>
       <Text style={[
         globalStyles.btnPrimaryText, {
           color: colors_them.buttonTextColor
         }
-      ]}>Button</Text>
+      ]}>{text}</Text>
     </Pressable>
   )
 }

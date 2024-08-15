@@ -4,7 +4,7 @@ import { IndexComponent } from './src';
 
 export default function App() {
   return (
-    <IndexComponent/>
+    <IndexComponent  />
   );
 }
 

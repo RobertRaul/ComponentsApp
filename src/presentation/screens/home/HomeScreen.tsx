@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
 import { globalStyles } from '../../../config/theme/theme';
-import { Title } from '../../components/ui/Title';
+import { MyTitle } from '../../components/ui/MyTitle';
 import { MenuItem } from '../../components/ui/MenuItem';
 
 const animationItems = [
@@ -78,31 +78,32 @@ export const HomeScreen = () => {
         <View style={globalStyles.mainContainer}>
             <View style={globalStyles.globalMargin}>
                 <ScrollView>
-                    <Title text='Hola TItulo' safe={true} />
+                    <MyTitle text='Hola TItulo' safe={true} />
                     {
                         animationItems.map((item, index) => (
                             // Se puede realizar de ambas maneras, {...item} "spread" pasa todos los valores y como tiene los mismos nombres lo acepta
                             //<MenuItem key={item.component} name={item.name} icon={item.icon} component={item.component} ></MenuItem>
                             <MenuItem key={item.component}  {...item}
                                 isFirst={index === 0}
-                                isLast={index === menuItems.length - 1}
+                                isLast={index === animationItems.length - 1}
+                            ></MenuItem>
+                        ))
+                    }
+
+                    <View style={{ marginTop: 30 }} />
+                    {
+                        uiMenuItems.map((item, index) => (
+                            // Se puede realizar de ambas maneras, {...item} "spread" pasa todos los valores y como tiene los mismos nombres lo acepta
+                            //<MenuItem key={item.component} name={item.name} icon={item.icon} component={item.component} ></MenuItem>
+                            <MenuItem key={item.component}  {...item}
+                                isFirst={index === 0}
+                                isLast={index === uiMenuItems.length - 1}
                             ></MenuItem>
                         ))
                     }
                     <View style={{ marginTop: 30 }} />
                     {
                         menuItems.map((item, index) => (
-                            // Se puede realizar de ambas maneras, {...item} "spread" pasa todos los valores y como tiene los mismos nombres lo acepta
-                            //<MenuItem key={item.component} name={item.name} icon={item.icon} component={item.component} ></MenuItem>
-                            <MenuItem key={item.component}  {...item}
-                                isFirst={index === 0}
-                                isLast={index === menuItems.length - 1}
-                            ></MenuItem>
-                        ))
-                    }
-                    <View style={{ marginTop: 30 }} />
-                    {
-                        uiMenuItems.map((item, index) => (
                             // Se puede realizar de ambas maneras, {...item} "spread" pasa todos los valores y como tiene los mismos nombres lo acepta
                             //<MenuItem key={item.component} name={item.name} icon={item.icon} component={item.component} ></MenuItem>
                             <MenuItem key={item.component}  {...item}

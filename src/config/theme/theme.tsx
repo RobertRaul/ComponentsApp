@@ -18,6 +18,16 @@ export const colors_them: ThemeColors = {
 };
 
 export const globalStyles = StyleSheet.create({
+
+    myInput: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        borderBlockColor: 'rgba(0,0,0,0.3)',
+        borderRadius: 10,
+        color: colors_them.text
+    },
     title: {
         fontSize: 30,
         fontWeight: "bold",

@@ -5,7 +5,7 @@ import { MyStackNavigator } from './presentation/navigator/MyStackNavigator'
 
 export const IndexComponent = () => {
     return (
-        <NavigationContainer>
+        <NavigationContainer >
             <MyStackNavigator />
         </NavigationContainer>
     )

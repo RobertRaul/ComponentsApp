@@ -4,6 +4,7 @@ import { CustomView } from '../../components/ui/CustomView'
 import { Switch, View } from 'react-native';
 import { MyCard } from '../../components/ui/MyCard';
 import { MySwitch } from '../../components/ui/MySwitch';
+import { MySeparator } from '../../components/ui/MySeparator';
 
 
 export const SwitchScreen = () => {
@@ -20,7 +21,9 @@ export const SwitchScreen = () => {
         <CustomView style={{ marginTop: 100, paddingHorizontal: 10 }}>
             <MyCard>
                 <MySwitch isOn={state.isActive} text='Esta Activo' onChange={(value) => setState({ ...state, isActive: value })} />
+                <MySeparator />
                 <MySwitch isOn={state.isHungry} text='Tiene Hambre' onChange={(value) => setState({ ...state, isHungry: value })} />
+                <MySeparator />
                 <MySwitch isOn={state.isHappy} text='Es Feliz' onChange={(value) => setState({ ...state, isHappy: value })} />
             </MyCard>
         </CustomView>
