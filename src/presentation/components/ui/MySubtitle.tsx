@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { globalStyles } from '../../../config/theme/theme';
+import { MyThemeContext } from '../../context/ThemeContext';
 
 interface Props {
     text: string;
@@ -11,7 +12,7 @@ interface Props {
 
 export const MySubtitle = ({ text, safe, backgroundColor }: Props) => {
     const { top } = useSafeAreaInsets();
-
+    
     return (
         <Text style={{
             ...globalStyles.subTitle,

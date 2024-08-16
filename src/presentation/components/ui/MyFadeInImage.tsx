@@ -10,7 +10,7 @@ interface Props {
 export const MyFadeInImage = ({ uri, styl }: Props) => {
     const { animatedOpacity, fadeIn } = useAnimation();
     const [loading, setLoading] = useState(true)
-
+    
     return (
         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
             <ActivityIndicator

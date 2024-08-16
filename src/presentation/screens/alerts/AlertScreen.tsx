@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, Text, StyleSheet, Button, Alert } from 'react-native'
 import { CustomView } from '../../components/ui/CustomView'
 import { MyTitle } from '../../components/ui/MyTitle'
@@ -6,10 +6,11 @@ import { globalStyles } from '../../../config/theme/theme'
 import { MyButton } from '../../components/ui/MyButton'
 import prompt from 'react-native-prompt-android';
 import { myShowPrompt } from '../../../config/theme/adapters/prompt.adapter'
+import { MyThemeContext } from '../../context/ThemeContext'
 
 export const AlertScreen = () => {
 
-
+    const { isDark } = useContext(MyThemeContext);
     const createTwoButtonAlert = () =>
         Alert.alert('Alert Title', 'My Alert Msg', [
             {
@@ -18,7 +19,10 @@ export const AlertScreen = () => {
                 style: 'destructive',
             },
             { text: 'OK', onPress: () => console.log('OK Pressed') },
-        ]);
+        ], {
+            userInterfaceStyle: isDark ? 'dark' : 'light'
+        }
+        );
 
     const createThreeButtonAlert = () =>
         Alert.alert('Alert Title', 'My Alert Msg', [
@@ -32,7 +36,9 @@ export const AlertScreen = () => {
                 style: 'destructive',
             },
             { text: 'OK', onPress: () => console.log('OK Pressed') },
-        ]);
+        ], {
+            userInterfaceStyle: isDark ? 'dark' : 'light'
+        });
 
     const showPrompt = () => {
         Alert.prompt(

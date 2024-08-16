@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, Text, StyleSheet, StyleProp, ViewStyle, Pressable } from 'react-native'
 import { colors_them, globalStyles } from '../../../config/theme/theme';
+import { MyThemeContext } from '../../context/ThemeContext';
 
 interface Props {
   text?: string;
@@ -9,6 +10,8 @@ interface Props {
 }
 
 export const MyButton = ({ text = 'MyButton', style, onPress }: Props) => {
+  
+  const {colors} = useContext(MyThemeContext);
   return (
     <Pressable onPress={onPress} style={
       ({ pressed }) => (
@@ -16,7 +19,7 @@ export const MyButton = ({ text = 'MyButton', style, onPress }: Props) => {
           style,
         {
           opacity: pressed ? 0.5 : 1,
-          backgroundColor: colors_them.primary,
+          backgroundColor: colors.primary,
           marginTop: 10,
         }]
       )
@@ -24,7 +27,7 @@ export const MyButton = ({ text = 'MyButton', style, onPress }: Props) => {
     }>
       <Text style={[
         globalStyles.btnPrimaryText, {
-          color: colors_them.buttonTextColor
+          color: colors.buttonTextColor
         }
       ]}>{text}</Text>
     </Pressable>

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, Text, StyleSheet, Switch, Platform } from 'react-native'
-import { colors_them } from '../../../config/theme/theme'
+import { MyThemeContext } from '../../context/ThemeContext';
 
 interface Props {
     isOn: boolean;
@@ -10,14 +10,19 @@ interface Props {
 
 
 export const MySwitch = ({ isOn, text, onChange }: Props) => {
+    const {colors} = useContext(MyThemeContext);
     return (
-        <View style={styles.switchRow}>
-            {text && (<Text style={{ color: colors_them.text }}>{text} </Text>)}
+        <View style={[styles.switchRow,
+            {
+                backgroundColor:colors.cardBackground
+            }
+        ]}>
+            {text && (<Text style={{ color: colors.text }}>{text} </Text>)}
 
             <Switch
                 //trackColor={{ false: '#767577', true: '#81b0ff' }}
                 //trackColor={Platform.OS === 'android' ? colors_them.primary : ''}
-                thumbColor={Platform.OS === 'android' ? colors_them.primary : ''}
+                thumbColor={Platform.OS === 'android' ? colors.primary : ''}
                 //thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
 
                 ios_backgroundColor="#3e3e3e"
